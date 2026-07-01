@@ -1,73 +1,104 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Для Дильназаврика🦖</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Дильназаврика 🦖</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@100;200;300;400&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<button id="musicBtn" onclick="toggleMusic()">
-    🔊
-</button>
+
+<div id="customCursor">✨</div>
+
+<div id="musicBtn" onclick="toggleMusic()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+
+<div id="photoPopup" onclick="closePhoto()">
+    <img id="popupImg" src="" alt="Увеличенное фото">
+</div>
+
 <div class="page active" id="page1">
-    <h1>Для Дильназаврика🦖</h1>
-   <p id="typing"></p>
-    <button onclick="nextPage(2)">Открыть</button>
+    <div class="glass-card zoom-in">
+        <h1 data-depth="30">Для Дильназаврика 🦖</h1>
+        <p id="typing" data-depth="15"></p>
+        <button onclick="nextPage(2)" data-depth="20">Открыть</button>
+    </div>
 </div>
 
 <div class="page" id="page2">
-    <h1>С днём рождения 🎂</h1>
-    <p>
-        Сегодня тебе исполняется 17.<br><br>
-        И пусть мы ещё не виделись вживую,
-        я очень рад, что мы познакомились.
-    </p>
-    <button onclick="nextPage(3)">Дальше ❤️</button>
+    <div class="glass-card zoom-in">
+        <h1 data-depth="30">С днём рождения 🎂</h1>
+        <p data-depth="15">
+            Today тебе исполняется <span class="serif-text">семнадцать</span>.<br><br>
+            И пусть мы ещё не виделись вживую, <br>
+            я безумно рад, что однажды мы познакомились.
+        </p>
+        <button onclick="nextPage(3)" data-depth="20">Дальше ❤️</button>
+    </div>
 </div>
 
 <div class="page" id="page3">
-    <h1>Твои воспоминания 📸</h1>
-
-    <div class="gallery">
-        <img src="images/photo1.jpg">
-        <img src="images/photo2.jpg">
-        <img src="images/photo3.jpg">
-        <img src="images/photo4.jpg">
+    <div class="glass-card zoom-in">
+        <h1 data-depth="30">Твои воспоминания 📸</h1>
+        <div class="canva-gallery" data-depth="10">
+            <img src="images/photo1.jpg" onclick="openPhoto(this)">
+            <img src="images/photo2.jpg" onclick="openPhoto(this)">
+            <img src="images/photo3.jpg" onclick="openPhoto(this)">
+            <img src="images/photo4.jpg" onclick="openPhoto(this)">
+        </div>
+        <button onclick="nextPage(4)" data-depth="20">Дальше ❤️</button>
     </div>
-
-    <button onclick="nextPage(4)">Дальше ❤️</button>
 </div>
 
 <div class="page" id="page4">
-    <h1>До нашей встречи осталось примерно</h1>
-
-     <div class="gallery">
-        <img src="images/photo5.jpg">
-        <img src="images/photo6.jpg">
+    <div class="glass-card zoom-in">
+        <h1 data-depth="30">До нашей встречи</h1>
+        <div class="canva-gallery" data-depth="10">
+            <img src="images/photo5.jpg" onclick="openPhoto(this)">
+            <img src="images/photo6.jpg" onclick="openPhoto(this)">
+        </div>
+        <div id="timer" data-depth="15"></div>
+        <button onclick="nextPage(5)" data-depth="20">Ещё кое-что...</button>
     </div>
-
-    <div id="timer"></div>
-
-    <button onclick="nextPage(5)">Ещё кое-что...</button>
 </div>
 
 <div class="page" id="page5">
-    <h1>Спасибо тебе ❤️</h1>
-
-    <p>
-        Спасибо за все разговоры,
-        эмоции и моменты.
-        Надеюсь, в августе мы увидимся
-        и знай что ты апигет какая
-    </p>
-
-    <h2>До встречи, Дильназа ❤️</h2>
+    <div class="glass-card zoom-in">
+        <h1 data-depth="30">Спасибо тебе ❤️</h1>
+        <p data-depth="15">
+            Спасибо за все наши долгие разговоры, искренние эмоции и тёплые моменты. <br>
+            Надеюсь, <span class="serif-text">в августе</span> мы наконец-то увидимся. <br><br>
+            Знай, ты потрясающая!
+        </p>
+        <button onclick="nextPage(6)" data-depth="20">И последнее... 👇</button>
+    </div>
 </div>
 
-<script src="script.js"></script>
+<div class="page" id="page6">
+    <div class="glass-card zoom-in card-rule">
+        <h1 class="rule-title" data-depth="30">Главное правило! ☝️</h1>
+        <div class="canva-gallery gallery-rule" data-depth="10">
+            <img src="images/meme.png" onclick="openPhoto(this)">
+        </div>
+        <p class="rule-text" data-depth="15">
+            помни что ты апигет какая апигенная
+        </p>
+    </div>
+</div>
+
 <audio id="music" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
+
+<script src="script.js"></script>
 </body>
 </html>
